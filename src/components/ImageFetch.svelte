@@ -17,27 +17,27 @@
 
   // 🐱 Uncomment lines 12-32 to access THE CAT API
 
-  // onMount(async () => {
-  //   try {
-  //     const apiKey = import.meta.env.VITE_API_KEY || null;
-  //     const response = await fetch(`https://api.thecatapi.com/v1/images/search?breed_ids=${searchId}`, {
-  //       headers: {
-  //         'x-api-key': `${apiKey}`,
-  //         'Content-Type': 'application/json'
-  //       }
-  //     });
+  onMount(async () => {
+    try {
+      const apiKey = import.meta.env.VITE_API_KEY || null;
+      const response = await fetch(`https://api.thecatapi.com/v1/images/search?breed_ids=${searchId}`, {
+        headers: {
+          'x-api-key': `${apiKey}`,
+          'Content-Type': 'application/json'
+        }
+      });
 
-  //     if (!response.ok) {
-  //       throw new Error('Failed to fetch data');
-  //     }
+      if (!response.ok) {
+        throw new Error('Failed to fetch data');
+      }
 
-  //     data = await response.json();
-  //   } catch (err) {
-  //     error = err.message;
-  //   } finally {
-  //     loading = false;
-  //   }
-  // });
+      data = await response.json();
+    } catch (err) {
+      error = err.message;
+    } finally {
+      loading = false;
+    }
+  });
 
 </script>
 

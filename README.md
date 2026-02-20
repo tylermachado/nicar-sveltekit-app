@@ -1,6 +1,6 @@
-# NICAR25: First SvelteKit data app
+# NICAR26: First SvelteKit data app
 
-Here's all the code you'll need to get up and running for the NICAR 2025 session on building a SvelteKit data app. 
+Here's all the code you'll need to get up and running for the NICAR 2026 session on building a SvelteKit data app. 
 
 This project uses:
 

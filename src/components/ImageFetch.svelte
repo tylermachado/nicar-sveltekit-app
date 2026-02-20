@@ -1,14 +1,11 @@
 <script>
-  import { onMount } from 'svelte';
+  // Props
+  let { searchId, altText } = $props();
 
   // Variables for fetching data
-  let data;
-  let loading = true;
-  let error;
-
-  // Props
-  export let searchId;
-  export let altText;
+  let data = $state(null);
+  let loading = $state(true);
+  let error = $state(null);
 
   // Backup image
   import CatIcon from '$lib/svg/cat.svg?component';
@@ -17,26 +14,29 @@
 
   // 🐱 Uncomment lines 12-32 to access THE CAT API
 
-  onMount(async () => {
-    try {
-      const apiKey = import.meta.env.VITE_API_KEY || null;
-      const response = await fetch(`https://api.thecatapi.com/v1/images/search?breed_ids=${searchId}`, {
-        headers: {
-          'x-api-key': `${apiKey}`,
-          'Content-Type': 'application/json'
+  $effect(() => {
+    async function fetchData() {
+      try {
+        const apiKey = import.meta.env.VITE_API_KEY || null;
+        const response = await fetch(`https://api.thecatapi.com/v1/images/search?breed_ids=${searchId}`, {
+          headers: {
+            'x-api-key': `${apiKey}`,
+            'Content-Type': 'application/json'
+          }
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch data');
         }
-      });
 
-      if (!response.ok) {
-        throw new Error('Failed to fetch data');
+        data = await response.json();
+      } catch (err) {
+        error = err.message;
+      } finally {
+        loading = false;
       }
-
-      data = await response.json();
-    } catch (err) {
-      error = err.message;
-    } finally {
-      loading = false;
     }
+    fetchData();
   });
 
 </script>

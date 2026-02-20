@@ -3,9 +3,7 @@
   import ImageFetch from './ImageFetch.svelte';
 
   // Props
-  export let image = "";
-  export let title = "Unknown";
-  export let subtitle = "N/A";
+  let { image = "", title = "Unknown", subtitle = "N/A" } = $props();
 </script>
 
 <div class="card bg-background shadow-lg rounded-xl overflow-hidden border border-border max-w-sm">

@@ -12,9 +12,9 @@
   let catId = $page.params.catid;
 
   // Filter stored data with our param
-  $: selectedCat = $filteredBreedsStore.filter(
+  let selectedCat = $derived($filteredBreedsStore.filter(
     (breed) => breed.id === catId,
-  )[0];
+  )[0]);
 </script>
 
 <div class="grid grid-cols-1 md:grid-cols-2 grid-rows-2 gap-4 items-center">

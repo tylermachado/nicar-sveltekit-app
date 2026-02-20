@@ -5,7 +5,7 @@
   import selectedCountry from '$stores/countryStore';
 
   // Props
-  export let options;  
+  let { options } = $props();
 </script> 
 
 <div class="header-container fixed w-full z-10 py-0 my-0 top-0">
@@ -19,7 +19,7 @@
 
   <!-- 🐱 Uncomment lines 18-28 below to enable the countries filter -->
 
-  <div class="w-full flex bg-gray-300 px-8 py-2 justify-center">
+  <!-- <div class="w-full flex bg-gray-300 px-8 py-2 justify-center">
     <div>
       Country of Origin:
     </div>
@@ -29,5 +29,5 @@
         <option value={country}>{country}</option>
       {/each}
     </select>
-  </div>
+  </div> -->
 </div>

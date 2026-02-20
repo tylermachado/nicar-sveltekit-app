@@ -7,10 +7,10 @@
 
   // Stores
   import { filteredBreedsStore } from "$stores/filteredBreedsStore";
-  $: filteredBreeds = $filteredBreedsStore || [];
+  let filteredBreeds = $derived($filteredBreedsStore || []);
 
   // Filtered data
-  $: dataCountries = Object.entries(
+  let dataCountries = $derived(Object.entries(
     filteredBreeds.reduce((acc, obj) => {
       const value = obj.origin;
       acc[value] = (acc[value] || 0) + 1;
@@ -18,9 +18,9 @@
     }, {}),
   )
     .map(([option, instances]) => ({ option, instances }))
-    .filter((item) => item.instances > 1);
+    .filter((item) => item.instances > 1));
 
-  $: dataSpan = Object.entries(
+  let dataSpan = $derived(Object.entries(
     filteredBreeds.reduce((acc, obj) => {
       const value = obj.life_span;
       acc[value] = (acc[value] || 0) + 1;
@@ -28,9 +28,9 @@
     }, {}),
   )
     .map(([option, instances]) => ({ option, instances }))
-    .filter((item) => item.instances > 1);
+    .filter((item) => item.instances > 1));
 
-  $: dataWeights = Object.entries(
+  let dataWeights = $derived(Object.entries(
     filteredBreeds.reduce((acc, obj) => {
       const value = obj.weight.imperial;
       acc[value] = (acc[value] || 0) + 1;
@@ -38,10 +38,10 @@
     }, {}),
   )
     .map(([option, instances]) => ({ option, instances }))
-    .filter((item) => item.instances > 1);
+    .filter((item) => item.instances > 1));
 </script>
 
-<div class="w-full justify-between items-center">
+<div class="w-full justify-between items-center max-w-2xl mx-auto">
   <h2 class="mb-4">Cats by Country of Origin</h2>
   <div class="chart-container mb-16">
     <LayerCake

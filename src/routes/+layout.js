@@ -1,6 +1,6 @@
 // 🐱 uncomment line 2, comment-out line 3 to load our data
-// import breeds from '$lib/data/breeds.json';
-let breeds = [];
+import breeds from '$lib/data/breeds.json';
+// let breeds = [];
 let countries = [];
 
 export function load() {

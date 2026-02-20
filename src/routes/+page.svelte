@@ -14,6 +14,7 @@
       title={breed.name}
       subtitle={breed.temperament}
       description={breed.description}>
-    </Card></a>
+    </Card>
+</a>
   {/each}
 </ul>

@@ -26,7 +26,7 @@
 	"dependencies": {
 		"@tailwindcss/aspect-ratio": "^0.4.2",
 		"d3-scale": "^4.0.2",
-		"layercake": "^8.4.2",
+		"layercake": "^10.0.0",
 		"svelte-inline-svg": "^1.2.0",
 		"vite-plugin-svgr": "^4.3.0"
 	}

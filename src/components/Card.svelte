@@ -6,7 +6,7 @@
   let { image = "", title = "Unknown", subtitle = "N/A" } = $props();
 </script>
 
-<div class="card bg-background shadow-lg rounded-xl overflow-hidden border border-border max-w-sm">
+<div class="card bg-background shadow-lg rounded-xl overflow-hidden border border-border max-w-sm hover:bg-gray-100 transition-colors">
   <ImageFetch
     searchId={image}
     altText={title}

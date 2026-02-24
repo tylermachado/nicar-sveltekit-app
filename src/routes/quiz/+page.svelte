@@ -34,19 +34,19 @@
     if (!isComplete) return [];
     
     return allBreeds.filter(breed => {
-      // Affectionate: affection_level >= 4
-      if (answers.affectionate === true && breed.affection_level >= 4) return false;
+      // Affectionate: if YES, keep breeds with affection_level >= 3
+      if (answers.affectionate === true && breed.affection_level < 3) return false;
 
-      // High energy: energy_level >= 4
-      if (answers.highEnergy === true && breed.energy_level >= 4) return false;
+      // High energy: if YES, keep breeds with energy_level >= 3
+      if (answers.highEnergy === true && breed.energy_level < 3) return false;
 
-      // Child friendly: child_friendly >= 4
-      if (answers.childFriendly === true && breed.child_friendly >= 4) return false;
+      // Child friendly: if YES, keep breeds with child_friendly >= 3
+      if (answers.childFriendly === true && breed.child_friendly < 3) return false;
 
-      // Indoor only: indoor === 1
+      // Indoor only: if YES, keep breeds where indoor === 1
       if (answers.indoorOnly === true && breed.indoor !== 1) return false;
 
-      // Hypoallergenic: hypoallergenic === 1
+      // Hypoallergenic: if YES, keep breeds where hypoallergenic === 1
       if (answers.hypoallergenic === true && breed.hypoallergenic !== 1) return false;
 
       return true;

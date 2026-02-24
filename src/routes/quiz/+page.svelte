@@ -15,7 +15,7 @@
     { key: 'hypoallergenic', text: 'Do you need a hypoallergenic cat?' }
   ];
 
-  // Store answers using Svelte 5 $state
+  // Store answers using $state
   let answers = $state({
     affectionate: null,
     highEnergy: null,

@@ -10,13 +10,14 @@
   let countries = data.countries;
   let breeds = data.breeds;
 
-  let filteredBreeds = $derived(
+  let breedsList = $derived(
     $selectedCountry && $selectedCountry !== "All"
       ? breeds.filter((breed) => breed.origin === $selectedCountry)
       : breeds
   );
 
-  setContext('filteredBreeds', () => filteredBreeds);
+  // 🐱 TASK 4: Set a context called filteredBreeds
+  setContext('filteredBreeds', () => breedsList);
 </script>
 
 <Header options={countries} />

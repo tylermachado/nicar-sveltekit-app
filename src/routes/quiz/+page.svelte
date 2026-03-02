@@ -8,7 +8,7 @@
   const getAllBreeds = getContext('allBreeds');
   let allBreeds = $derived(getFilteredBreeds?.() || getAllBreeds());
 
-  // Quiz questions and answers using $state
+  // Quiz questions and answers
   let questions = [
     { key: 'affectionate', text: 'Do you want an affectionate, cuddly cat?' },
     { key: 'highEnergy', text: 'Do you want a high-energy, playful cat?' },
@@ -32,25 +32,15 @@
   );
 
   // Filter breeds based on answers using $derived
-  let matchingBreeds = $derived(() => {
+  let matchingBreeds = $derived.by(() => {
     if (!isComplete) return [];
     
     return allBreeds.filter(breed => {
-      // Affectionate: if YES, keep breeds with affection_level >= 3
       if (answers.affectionate === true && breed.affection_level < 3) return false;
-
-      // High energy: if YES, keep breeds with energy_level >= 3
       if (answers.highEnergy === true && breed.energy_level < 3) return false;
-
-      // Child friendly: if YES, keep breeds with child_friendly >= 3
       if (answers.childFriendly === true && breed.child_friendly < 3) return false;
-
-      // Indoor only: if YES, keep breeds where indoor === 1
       if (answers.indoorOnly === true && breed.indoor !== 1) return false;
-
-      // Hypoallergenic: if YES, keep breeds where hypoallergenic === 1
       if (answers.hypoallergenic === true && breed.hypoallergenic !== 1) return false;
-
       return true;
     });
   });
@@ -83,7 +73,7 @@
 
   <!-- Results -->
   {#if isComplete}
-    <QuizResult breeds={matchingBreeds()} />
+    <QuizResult breeds={matchingBreeds} />
     
     <button
       class="mt-6 px-6 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"

@@ -31,6 +31,4 @@ TASK 3
 
 TASK 4
 
-setContext('breedsList', {
-    get breeds() { return filteredBreeds; }
-  });
+setContext('filteredBreeds', () => breedsList);

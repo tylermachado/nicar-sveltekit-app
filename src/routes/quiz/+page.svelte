@@ -5,7 +5,8 @@
   // Context
   import { getContext } from 'svelte';
   const getFilteredBreeds = getContext('filteredBreeds');
-  let allBreeds = $derived(getFilteredBreeds());
+  const getAllBreeds = getContext('allBreeds');
+  let allBreeds = $derived(getFilteredBreeds?.() || getAllBreeds());
 
   // Quiz questions and answers using $state
   let questions = [

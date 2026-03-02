@@ -8,12 +8,13 @@
   // Context
   import { getContext } from "svelte";
   const getFilteredBreeds = getContext('filteredBreeds');
+  const getAllBreeds = getContext('allBreeds');
 
   // Params
   let catId = $page.params.catid;
 
   // Filter context data with our param
-  let selectedCat = $derived(getFilteredBreeds().filter(
+  let selectedCat = $derived((getFilteredBreeds?.() || getAllBreeds()).filter(
     (breed) => breed.id === catId,
   )[0]);
 </script>

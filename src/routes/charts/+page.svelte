@@ -8,7 +8,8 @@
   // Context
   import { getContext } from "svelte";
   const getFilteredBreeds = getContext('filteredBreeds');
-  let filteredBreeds = $derived(getFilteredBreeds() || []);
+  const getAllBreeds = getContext('allBreeds');
+  let filteredBreeds = $derived(getFilteredBreeds?.() || getAllBreeds() || []);
 
   // Filtered data
   let dataCountries = $derived(Object.entries(

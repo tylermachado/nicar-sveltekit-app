@@ -16,8 +16,10 @@
       : breeds
   );
 
-  // 🐱 TASK 4: Set a context called filteredBreeds
-  setContext('filteredBreeds', () => breedsList);
+  setContext('allBreeds', () => breeds);
+
+  // 🐱 TASK 4: Set a context called filteredBreeds. setContext takes two arguments, the first is the name of the context and the second is the value that we want to fill that context. (Hint, the latter works better with a JS getter function, arrow-style.)
+  setContext( );
 </script>
 
 <Header options={countries} />

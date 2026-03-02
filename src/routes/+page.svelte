@@ -2,7 +2,8 @@
   import { getContext } from 'svelte';
   import Card from '$components/Card.svelte';
   const getFilteredBreeds = getContext('filteredBreeds');
-  let filteredBreeds = $derived(getFilteredBreeds());
+  const getAllBreeds = getContext('allBreeds');
+  let filteredBreeds = $derived(getFilteredBreeds?.() || getAllBreeds());
 </script>
 
 <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">

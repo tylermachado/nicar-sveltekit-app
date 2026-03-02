@@ -2,8 +2,8 @@
   import '../app.css';
   import ImageFetch from './ImageFetch.svelte';
 
-  // Props
-  let { image = "", title = "Unknown", subtitle = "N/A" } = $props();
+  // 🐱 TASK 2: Fill the object below with props we need to complete this component
+  let {  } = $props();
 </script>
 
 <div class="card bg-background shadow-lg rounded-xl overflow-hidden border border-border max-w-sm hover:bg-gray-100 transition-colors">

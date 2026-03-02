@@ -18,8 +18,8 @@
     </div>
   </div>
 
-  <!-- 🐱 Uncomment lines 18-28 below to enable the countries filter -->
-
+  <!-- 🐱 TASK 3: Add a dropdown to filter by country of origin, and bind the value to the selectedCountry store -->
+  <!--
   <div class="w-full flex bg-gray-300 px-8 py-2 justify-center">
     <div>
       Country of Origin:
@@ -31,4 +31,5 @@
       {/each}
     </select>
   </div>
+   -->
 </div>

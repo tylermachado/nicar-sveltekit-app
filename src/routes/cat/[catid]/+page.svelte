@@ -5,14 +5,16 @@
   import AxisRadial from "$components/layercake/AxisRadial.svelte";
   import ImageFetch from "$components/ImageFetch.svelte";
 
-  // Stores
-  import { filteredBreedsStore } from "$stores/filteredBreedsStore";
+  // Context
+  import { getContext } from "svelte";
+  const getFilteredBreeds = getContext('filteredBreeds');
+  const getAllBreeds = getContext('allBreeds');
 
   // Params
   let catId = $page.params.catid;
 
-  // Filter stored data with our param
-  let selectedCat = $derived($filteredBreedsStore.filter(
+  // Filter context data with our param
+  let selectedCat = $derived((getFilteredBreeds?.() || getAllBreeds()).filter(
     (breed) => breed.id === catId,
   )[0]);
 </script>

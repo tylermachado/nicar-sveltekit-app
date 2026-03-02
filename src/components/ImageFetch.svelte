@@ -44,8 +44,6 @@
   <div class="absolute inset-0 flex items-center justify-center">
     <CatIcon fill={fill} width="50%" height="50%" />
   </div>
-  {:else if error}
-    <p class="text-center">Error: {error}</p>
   {:else}
     <img src={data[0].url} alt="{altText}" class="object-cover w-full h-full" />
   {/if}

@@ -2,9 +2,10 @@
   import QuizQuestion from '$components/QuizQuestion.svelte';
   import QuizResult from '$components/QuizResult.svelte';
 
-  // Stores
-  import { filteredBreedsStore } from '$stores/filteredBreedsStore';
-  let allBreeds = $derived($filteredBreedsStore);
+  // Context
+  import { getContext } from 'svelte';
+  const getFilteredBreeds = getContext('filteredBreeds');
+  let allBreeds = $derived(getFilteredBreeds());
 
   // Quiz questions and answers using $state
   let questions = [

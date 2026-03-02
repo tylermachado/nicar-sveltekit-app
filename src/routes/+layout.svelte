@@ -1,9 +1,9 @@
 <script>
   import "../app.css";
+  import { setContext } from "svelte";
   import Header from "../components/Header.svelte";
   import Footer from "../components/Footer.svelte";
   import selectedCountry from "$stores/countryStore";  
-  import { filteredBreedsStore } from '$stores/filteredBreedsStore';
 
   // Props
   let { data, children } = $props();
@@ -16,9 +16,7 @@
       : breeds
   );
 
-  $effect(() => {
-    filteredBreedsStore.set(filteredBreeds);
-  });
+  setContext('filteredBreeds', () => filteredBreeds);
 </script>
 
 <Header options={countries} />

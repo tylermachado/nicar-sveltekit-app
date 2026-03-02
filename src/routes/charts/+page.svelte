@@ -5,9 +5,10 @@
   import AxisX from "$components/layercake/AxisX.percent-range.html.svelte";
   import AxisY from "$components/layercake/AxisY.percent-range.html.svelte";
 
-  // Stores
-  import { filteredBreedsStore } from "$stores/filteredBreedsStore";
-  let filteredBreeds = $derived($filteredBreedsStore || []);
+  // Context
+  import { getContext } from "svelte";
+  const getFilteredBreeds = getContext('filteredBreeds');
+  let filteredBreeds = $derived(getFilteredBreeds() || []);
 
   // Filtered data
   let dataCountries = $derived(Object.entries(
